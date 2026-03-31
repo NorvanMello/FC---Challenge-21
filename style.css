@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --color-gray-900: rgb(66,58,58);
+    --color-red-400: rgb(249,100,100);
+    --color-pink-400: rgb(206,152,152);
+
+    --color-gradient-1: linear-gradient(to right, #F8BFBF, #EE8B8B);
+    --color-gradient-2: linear-gradient(to right, #FFF, #FFF4F4);
+    --color-gradient-3: linear-gradient(to right, #FFF1F1, #FFF);
+
+    --text-primary: var(--color-pink-400);
+    --text-secondary: var(--color-gray-900);
+    --error-msg: var(--color-red-400);
+
+    --bg-primary: var(--color-gradient-2);
+
+    --btn-primary: var(--color-gradient-1);
+
+    --text-preset-1-light: 300 64px "Josefin Sans", sans-serif;
+    --text-preset-1-light-letter-spacing: 17.5px;
+    --text-preset-1-semibold: 600 64px/1.1 "Josefin Sans", sans-serif;
+    --text-preset-1-semibold-letter-spacing: 17.5px;
+    --text-preset-2-light: 300 40px "Josefin Sans", sans-serif;
+    --text-preset-2-light-letter-spacing: 10px;
+    --text-preset-2-semibold: 600 40px "Josefin Sans", sans-serif;
+    --text-preset-2-semibold-letter-spacing: 10px;
+    --text-preset-3: 400 16px/2.15 "Josefin Sans", sans-serif;
+    --text-preset-4: 400 14px/1.55 "Josefin Sans", sans-serif;
+    --text-preset-5: 400 13px/2.15 "Josefin Sans", sans-serif;
+
+    --spacing-0: 0rem;
+    --spacing-100: 0.5rem;   /* 8px */
+    --spacing-200: 1rem;     /* 16px */
+    --spacing-300: 1.5rem;   /* 24px */
+    --spacing-400: 2rem;     /* 32px */
+    --spacing-500: 2.5rem;   /* 40px */
+    --spacing-600: 3rem;     /* 48px */
+    --spacing-800: 4rem;     /* 64px */
+    --spacing-1000: 5rem;    /* 80px */
+    --spacing-1100: 5.5rem;  /* 88px */
+    --spacing-1700: 8.5rem;  /* 136px */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    
+    margin: 0;
+}
+
+.main-card {
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    /* height: 39rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: var(--spacing-400);
+}
+
+.container .logo {
+    width: 8.32rem;
+    height: 1.25rem;
+
+    align-self: flex-start;
+    margin-left: var(--spacing-400);
+}
+
+.logo img {
+    width: 6rem;
+}
+
+.bitmap {
+    height: 15.63rem;
+    margin: var(--spacing-400) 0 var(--spacing-800) 0;
+}
+
+.bitmap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 var(--spacing-400);
+
+    max-width: 19.47rem;
+    width: 100%;
+}
+
+.text-container h1 {
+    font: var(--text-preset-2-semibold);
+    letter-spacing: var(--text-preset-2-semibold-letter-spacing);
+    color: var(--text-secondary);
+    
+}
+
+.text-container h1 span {
+    font: var(--text-preset-2-light);
+    letter-spacing: var(--text-preset-2-light-letter-spacing);
+    color: var(--text-primary);
+}
+
+.text-container p {
+    font: var(--text-preset-4);
+    color: var(--text-primary);
+    margin: var(--spacing-200) 0 var(--spacing-400);
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.form-input {
+    background: var(--bg-primary);
+    width: 100%;
+    height: var(--spacing-600);
+    border: 1px solid var(--text-primary);
+    border-radius: 28px;
+    padding: var(--spacing-100) var(--spacing-300);
+
+    position: relative;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.form-input::placeholder {
+    font: var(--text-preset-3);
+    color: var(--text-primary);
+    opacity: 50%;
+}
+
+.error-input {
+    border: 2px solid var(--error-msg);
+}
+
+.error-input-img {
+    width: var(--spacing-300);
+    height: var(--spacing-300);
+
+    position: absolute;
+    right: var(--spacing-1000);
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: none;
+}
+
+.invalid-input-msg {
+    font: var(--text-preset-5);
+    color: var(--error-msg);
+
+    position: absolute;
+    left: var(--spacing-300);
+    top: calc(100% + 0.5rem);
+}
+
+.input-group button {
+    width: var(--spacing-800);
+    height: var(--spacing-600);
+    background: var(--btn-primary);
+    color: #FFF;
+    border-radius: 28px;
+    border: none;
+
+    position: absolute;
+    right: var(--spacing-0);
+}
+
+.input-group button img {
+    width: 9px;
+    height: 17px;
+}
