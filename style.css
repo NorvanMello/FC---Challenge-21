@@ -36,9 +36,11 @@
     --spacing-400: 2rem;     /* 32px */
     --spacing-500: 2.5rem;   /* 40px */
     --spacing-600: 3rem;     /* 48px */
+    --spacing-700:3.5rem;    /* 56px */
     --spacing-800: 4rem;     /* 64px */
     --spacing-1000: 5rem;    /* 80px */
     --spacing-1100: 5.5rem;  /* 88px */
+    --spacing-1400: 7rem;    /* 112px */
     --spacing-1700: 8.5rem;  /* 136px */
 }
 
@@ -55,6 +57,7 @@ body {
 .main-card {
     background: var(--bg-primary);
     min-height: 100vh;
+   
 }
 
 .container {
@@ -64,8 +67,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    margin-top: var(--spacing-400);
+    padding-top: var(--spacing-400);
+    
 }
 
 .container .logo {
@@ -73,11 +76,12 @@ body {
     height: 1.25rem;
 
     align-self: flex-start;
-    margin-left: var(--spacing-400);
+    /* margin-left: var(--spacing-400); */
 }
 
 .logo img {
     width: 6rem;
+    margin-left: var(--spacing-400);
 }
 
 .bitmap {
@@ -156,7 +160,7 @@ body {
 
     position: absolute;
     right: var(--spacing-1000);
-    top: 50%;
+    top: 50%;   
     transform: translateY(-50%);
 
     display: none;
@@ -187,3 +191,63 @@ body {
     width: 9px;
     height: 17px;
 }
+
+
+@media (min-width: 25rem) {
+    .container {
+        height: 100%;
+    }
+
+    .container .logo {
+        width: 16.32rem;
+    }
+
+    .container .logo img {
+        margin-left: var(--spacing-1000);
+    }
+
+    .bitmap {
+        max-width: 769px;
+        width: 100%;
+        height: 400px;
+    }
+
+    .bitmap img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .text-container {
+        max-width: 27.82rem;
+        /* width: 100%;
+        height: 414px; */
+    }
+
+    .text-container h1 {
+        font: var(--text-preset-1-semibold);
+        letter-spacing: var(--text-preset-1-semibold-letter-spacing);
+    }
+
+    .text-container h1 span {
+        font: var(--text-preset-1-light);
+        letter-spacing: var(--text-preset-1-light-letter-spacing);
+    }
+
+    .text-container p {
+        font: var(--text-preset-3);
+    }
+
+     .form-input {
+        height: var(--spacing-700);
+    }
+
+    .error-input-img {
+        right: var(--spacing-1400);
+    }
+
+    .input-group button {
+        width: 100px;
+        height: var(--spacing-700);
+    }
+}
+   
