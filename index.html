@@ -19,18 +19,22 @@
       </header>
 
       <section class="bitmap">
-        <img src="./images/hero-mobile.jpg" alt="">
+        <picture>
+          <source media="(min-width: 375px)" srcset="./images/hero-desktop.jpg">
+          <img src="./images/hero-mobile.jpg" alt="">
+        </picture>
+        
       </section>
 
       <section class="text-container">
         <h1><span>WE'RE</span> COMING SOON</h1>
         
         <p> Hello fellow shoppers! We're currently building our new fashion store. 
-  Add your email below to stay up-to-date with announcements and our launch deals.</p>
+        Add your email below to stay up-to-date with announcements and our launch deals.</p>
 
         <form action="#" method="post" novalidate>
           <div class="input-group">
-            <input type="email" placeholder="Email Address" id="email" name="email" autocomplete="off" class="form-input" required>
+            <input type="email" placeholder="Email Address" id="email" name="email" autocomplete="email" class="form-input" required>
             <button type="submit" class="form-btn"><img src="./images/icon-arrow.svg" alt=""></button>
             <img src="./images/icon-error.svg" alt="" class="error-input-img">
             <span class="invalid-input-msg"></span>
@@ -38,7 +42,6 @@
         </form>
       </section>
     </article>
-
   </main>
 
   <script src="script.js"></script>
