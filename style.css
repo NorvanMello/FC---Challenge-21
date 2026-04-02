@@ -302,7 +302,6 @@ body {
     .bitmap {
         width: min(42%, 38rem);
         height: 100vh;
-        max-height: 50rem;
         margin: 0;
         flex-shrink: 0;
     }
