@@ -143,8 +143,16 @@ body {
     position: relative;
 }
 
+.form-input:focus-visible {
+  outline: 3px solid #2563eb; /* high-contrast outline for visibility */
+  outline-offset: 2px;       /* separates the outline from the element */
+  border-radius: 4px;        /* match visual design */
+}
+
+/* Fallback for browsers that don't support :focus-visible (applies to all focus) */
 .form-input:focus {
-    outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25); /* visible halo for focus */
+  border-color: #2563eb;                         /* reinforce the state */
 }
 
 .form-input::placeholder {
@@ -198,8 +206,13 @@ body {
 
 @media (min-width: 25rem) { /*tablet*/
     .container {
+        /* height: 100%; */
         padding-bottom: 3.88rem;
     }
+
+    /* .container .logo {
+        width: 16.32rem;
+    } */
 
     .logo-tablet-mobile {
         display: block;
@@ -301,9 +314,10 @@ body {
 
     .bitmap {
         width: min(42%, 38rem);
-        height: 100vh;
+        height: auto;              
+        min-height: 60vh;         
+        max-height: 100dvh;      
         margin: 0;
         flex-shrink: 0;
-    }
+        overflow: auto;         
 }
-   
