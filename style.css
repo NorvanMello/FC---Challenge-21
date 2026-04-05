@@ -42,6 +42,11 @@
     --spacing-1100: 5.5rem;  /* 88px */
     --spacing-1400: 7rem;    /* 112px */
     --spacing-1700: 8.5rem;  /* 136px */
+
+    --submit-btn-width-mobile: 4rem;
+    --submit-btn-width-tablet: 6rem;
+    --error-icon-gap: 1rem;
+    /* --error-icon-offset: calc(var(--submit-btn-width-mobile) + var(--error-icon-gap)); */
 }
 
 * {
@@ -67,7 +72,6 @@ body {
     justify-content: center;
     flex-direction: column;
     padding-top: var(--spacing-400);
-    
 }
 
 .logo-desktop {
@@ -88,14 +92,18 @@ body {
 }
 
 .bitmap {
-    height: 15.63rem;
+    width: 100%;
+    max-width: 54rem;        /* optional constrain for large screens */
+    aspect-ratio: 16 / 9;    /* maintain ratio instead of fixed height */
     margin: var(--spacing-400) 0 var(--spacing-800) 0;
+    overflow: hidden;        /* avoid overflow if child is larger */
 }
 
 .bitmap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .text-container {
@@ -144,9 +152,10 @@ body {
 }
 
 .form-input:focus-visible {
-  outline: 3px solid #2563eb; /* high-contrast outline for visibility */
-  outline-offset: 2px;       /* separates the outline from the element */
-  border-radius: 4px;        /* match visual design */
+  outline: none;                     /* remove default outline if you replace it */
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15); /* ring that follows border-radius */
+  border-color: #2563eb;             /* optional: indicate focus with border color */
+  /* keep border-radius: 28px so shape is consistent */
 }
 
 /* Fallback for browsers that don't support :focus-visible (applies to all focus) */
@@ -170,11 +179,15 @@ body {
     height: var(--spacing-300);
 
     position: absolute;
-    right: calc(4rem + 1rem);
+    right: calc(var(--submit-btn-width-mobile) + var(--error-icon-gap));
     top: 50%;   
     transform: translateY(-50%);
 
     display: none;
+}
+
+.error-input-img .is-visible {
+    display: block; 
 }
 
 .invalid-input-msg {
@@ -206,14 +219,8 @@ body {
 
 @media (min-width: 25rem) { /*tablet*/
     .container {
-        /* height: 100%; */
         padding-bottom: 3.88rem;
     }
-
-    /* .container .logo {
-        width: 16.32rem;
-    } */
-
     .logo-tablet-mobile {
         display: block;
     }
@@ -258,7 +265,7 @@ body {
     }
 
     .error-input-img {
-        right: calc(6rem + 1rem);
+        right: calc(var(--submit-btn-width-tablet) + var(--error-icon-gap));
     }
 
     .input-group button {
@@ -268,7 +275,6 @@ body {
 }
 
 @media (min-width: 48rem) { /*desktop*/
-
     .container {
         flex-direction: row-reverse;
         align-items: stretch;
@@ -314,10 +320,12 @@ body {
 
     .bitmap {
         width: min(42%, 38rem);
-        height: auto;              
-        min-height: 60vh;         
-        max-height: 100dvh;      
+        height: auto;              /* don't force a viewport-based height */
+        min-height: 60vh;         /* ensure it stays visually substantial on tall screens */
+        max-height: 100dvh;       /* prevents overflow beyond the visible area */
         margin: 0;
         flex-shrink: 0;
-        overflow: auto;         
-}
+        overflow: auto;           /* allow scrolling inside if content still exceeds available space */
+    }
+
+   
