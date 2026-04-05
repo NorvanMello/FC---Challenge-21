@@ -10,23 +10,22 @@ if(form && formInput && errorInputImg && invalidInputMsg) {
         
         const raw = formInput.value;
         const email = raw.trim().toLowerCase();
-        formInput.value = email;
         const isValid = regexEmail.test(email);
 
         if(!isValid) {
             formInput.classList.add("error-input")
-            errorInputImg.style.display = "block"
+            errorInputImg.classList.add("is-visible");
             invalidInputMsg.innerText = "Please provide a valid email"
         } else {
             formInput.classList.remove("error-input")
-            errorInputImg.style.display = "none"
+            errorInputImg.classList.remove("is-visible");
             invalidInputMsg.innerText = ""
         }
     });
 
     formInput.addEventListener("input", () => {
         formInput.classList.remove("error-input");
-        errorInputImg.style.display = "none";
+        errorInputImg.classList.remove("is-visible");
         invalidInputMsg.innerText = "";
     });
 }
